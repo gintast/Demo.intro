@@ -1,4 +1,4 @@
-package lt.bit.java.daugybosLentele;
+//package lt.bit.java.daugybosLentele;
 
 //public class Main {
     //public static void main(String[] args) {
