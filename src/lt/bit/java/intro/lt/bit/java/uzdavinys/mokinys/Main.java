@@ -1,4 +1,4 @@
-package lt.bit.java.KlasesirObjektai;
+package lt.bit.java.intro.lt.bit.java.uzdavinys.mokinys;
 
 
 import java.util.Arrays;

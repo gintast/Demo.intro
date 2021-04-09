@@ -1,4 +1,4 @@
-package lt.bit.java.KlasesirObjektai;
+package lt.bit.java.uzdavinys;
 
 public class pamoka {
     public static void main(String[]args) {
