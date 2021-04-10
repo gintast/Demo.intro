@@ -1,6 +1,6 @@
 package lt.bit.java.uzdavinys;
 
-public class Gatve {
+public class pamoka {
     public static void main(String[]args) {
         // vienos gatves pozymiai:
         //- kodas
