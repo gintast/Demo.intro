@@ -20,7 +20,7 @@
     // @Override
     // public String toString() {
      //   return getClass().getSimpleName() + " " + position + " ," + color ;
-       }
+     //  }
      // public Postion[] possibleMovies(){
       //  return null;
 

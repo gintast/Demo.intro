@@ -1,4 +1,4 @@
-package lt.bit.java.klasesirobjektai.chess;
+/*package lt.bit.java.klasesirobjektai.chess;
 
 public class Game {
     public static void main(String[]args) {
@@ -14,3 +14,4 @@ public class Game {
     }
 
 }
+*/
