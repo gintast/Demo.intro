@@ -1,0 +1,1612 @@
+Index: projektas.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"JAVA_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\" inherit-compiler-output=\"true\">\n    <exclude-output />\n    <content url=\"file://$MODULE_DIR$\">\n      <sourceFolder url=\"file://$MODULE_DIR$/src\" isTestSource=\"false\" />\n    </content>\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/projektas.iml b/projektas.iml
+--- a/projektas.iml	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ b/projektas.iml	(date 1618086268877)
+@@ -7,5 +7,31 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="module-library">
++      <library name="JUnit4">
++        <CLASSES>
++          <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library">
++      <library name="JUnit5.4">
++        <CLASSES>
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.4.2/junit-jupiter-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.2/junit-jupiter-api-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.4.2/junit-platform-commons-1.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.4.2/junit-jupiter-params-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.4.2/junit-jupiter-engine-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.4.2/junit-platform-engine-1.4.2.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
+   </component>
+ </module>
+\ No newline at end of file
+Index: src/lt/bit/java/intro/lt/bit/java/uzdavinys/mokinys/Main.java
+===================================================================
+diff --git a/src/lt/bit/java/intro/lt/bit/java/uzdavinys/mokinys/Main.java b/src/lt/bit/java/intro/lt/bit/java/uzdavinys/mokinys/Main.java
+deleted file mode 100644
+--- a/src/lt/bit/java/intro/lt/bit/java/uzdavinys/mokinys/Main.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,84 +0,0 @@
+-package lt.bit.java.intro.lt.bit.java.uzdavinys.mokinys;
+-
+-
+-import java.util.Arrays;
+-
+-public class Main {
+-
+-    public static void main(String[] args) {
+-        System.out.print("Student");
+-
+-        Student s1 = new Student();
+-        s1.grupe = 4;
+-        s1.firstName = "Petras";
+-        s1.lastName = "Petraitis";
+-
+-        Student s2 = new Student(3, "Jonas", "Jonaitis");
+-
+-        Student[] masyvas = {
+-                s1,
+-                s2,
+-                new Student(6, "Antanas", "Antanaitis"),
+-                new Student(2, "Ona", "Onyte")
+-        };
+-
+-        System.out.println(Arrays.toString(masyvas));
+-        Student tuscias;
+-
+-        int i;
+-        for (i = 0; i < masyvas.length - 1; i++) ;
+-        for (int j = i + 1; j < masyvas.length; j++) {
+-            if (compareTo(masyvas[i], masyvas[j]) > 0) {
+-                tuscias = masyvas[i];
+-                masyvas[i] = masyvas[j];
+-                masyvas[j] = tuscias;
+-            }
+-        }
+-        System.out.println(i + ":" + Arrays.toString(masyvas));
+-    }
+-
+-    static int compareTo(Student a, Student b) {
+-        // boolean r = a >b;
+-
+-        //lyginame grupes
+-
+-        if (a.grupe > b.grupe) return 1;
+-        else if (a.grupe > b.grupe) return -1;
+-
+-        // a.grupe == b.grupe
+-        // lyginu pavarde,nes grupe yra lygios
+-        int r = a.lastName.compareTo(b.lastName);
+-        if (r != 0) return -r;
+-
+-        // jei r == 0 ,t.y jei lastName lugios
+-        r = a.firstName.compareTo(b.firstName);
+-        return r;
+-    }
+-}
+-
+-
+-class Student {
+-    int grupe;
+-    String firstName;
+-    String lastName;
+-
+-    public Student() {
+-
+-    }
+-
+-    public Student(int grupe, String firstName, String lastName) {
+-        this.grupe = grupe;
+-        this.firstName = firstName;
+-        this.lastName = lastName;
+-    }
+-
+-    public String toString() {
+-        return grupe + " " + firstName + " " + lastName + " ";
+-    }
+-    // static void compare(int a, int b) {
+-    //     boolean r = a >b;
+-    //     return;
+-    // }
+-
+-}
+-
+Index: src/lt/bit/java/uzdavinys/pamoka.java
+===================================================================
+diff --git a/src/lt/bit/java/uzdavinys/pamoka.java b/src/lt/bit/java/uzdavinys/pamoka.java
+deleted file mode 100644
+--- a/src/lt/bit/java/uzdavinys/pamoka.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,74 +0,0 @@
+-package lt.bit.java.uzdavinys;
+-
+-public class pamoka {
+-    public static void main(String[]args) {
+-        // vienos gatves pozymiai:
+-        //- kodas
+-        //-pavadinmas
+-        //-masyvas-kilometras
+-        //-masyvas - plotas
+-        // pvz:
+-        //   kodas:       10
+-        //  pavadinimas:  Laisves al.
+-        // kilometras:   [2.0 km, 3.4 km,  5.9 km]
+-        // plotas :      [2 juostos, 2 juostos, 6 juostos ]
+-
+-        int[] kodai = {10,11,12 };
+-        String[] pavadinimai = {"Laisves al","Vytauto pr. ","Maironio g."};
+-        double[][] km = {
+-
+-                {2.0, 3.4, 5.9 },
+-                {0.0, 0.5, 0.75,1.2, 3.4},
+-                {0.0, 0.3, 1.1, 1.8}
+-        };
+-        int[][] plotis = {
+-                {2, 2, 6},
+-                {5, 4, 4, 4, 6},
+-                {2, 2, 2, 2}
+-        };
+-        for(int i = 0; i < kodai.length; i++){
+-            System.out.print(kodai[i] + " " + pavadinimai [i] + ", sankryzos: " );
+-            for (int k = 0; k < km[i].length; k++){
+-                System.out.print(km[i][k] + " (" + plotis[i][k] + "),");
+-            }
+-            System.out.println();
+-        }
+-          //Strukturos!!!
+-        class Sankryza {
+-            double km;
+-            int plotis;
+-        }
+-        class Gatve {
+-            int kodas;
+-            String pavadinimas;
+-            double[] km;
+-            int[] ploti;
+-            Sankryza[] sankryzos;
+-        }
+-          Gatve gatve = new Gatve();
+-          gatve.kodas = 10;
+-          gatve.pavadinimas ="laisves al.";
+-          gatve.sankryzos = new Sankryza[3];
+-          gatve.sankryzos[0] = new Sankryza();
+-          gatve.sankryzos[0].km = 2.0;
+-          gatve.sankryzos[0].plotis = 2;
+-          gatve.sankryzos[1] = new Sankryza();
+-          gatve.sankryzos[1].km = 3.4;
+-          gatve.sankryzos[1].plotis = 2;
+-          gatve.sankryzos[2] = new Sankryza();
+-          gatve.sankryzos[2].km = 5.9;
+-          //gatve.sankryzos[2}.plotis = 2;
+-
+-        System.out.print(gatve.kodas + " " + gatve.pavadinimas + " sankryzos: " );
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-    }
+-}
+Index: src/lt/bit/java/klasesirobjektai/chess/King.java
+===================================================================
+diff --git a/src/lt/bit/java/klasesirobjektai/chess/King.java b/src/lt/bit/java/klasesirobjektai/chess/King.java
+deleted file mode 100644
+--- a/src/lt/bit/java/klasesirobjektai/chess/King.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,32 +0,0 @@
+-//package lt.bit.java.klasesirobjektai.chess;
+-
+-//public class King extends Figure {
+- //   public King(char letter, int number, String color) {
+-    //    super(letter, number, color);
+-   // }
+-   /*... C   D   E ...
+-   3     x   x   x
+-   4     x   x   x
+-   5     x   x   x
+-
+-
+-    */
+-   //}
+-   /*
+-    @Override
+-    public Postion[] possibleMovies(){
+-        Position[] positions = new Position[]{
+-                new Position(char)(position.letter -1 ),number:position.number);
+-                new Position(position.letter, position.number -1),
+-                new Position(char)(position.letter +1 ), position.number-1),
+-        new Position(char)(position.letter -1 ), position.number),
+-        new Position(char)(position.letter +1 ), position.number),
+-        new Position(char)(position.letter -1 ),number: position.number + 1),
+-        new Position(position.letter, position.number + 1 ),
+-        new Position(char)(position.letter + 1),number:position.number + 1)
+-        };return position;
+-   */
+-   /// public Position[] possibleMovies(){
+-    //     Position[] positions = new Position[8];
+-   // };
+-  //}
+Index: src/lt/bit/java/uzdavinys/Main.java
+===================================================================
+diff --git a/src/lt/bit/java/uzdavinys/Main.java b/src/lt/bit/java/uzdavinys/Main.java
+deleted file mode 100644
+--- a/src/lt/bit/java/uzdavinys/Main.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,2 +0,0 @@
+-
+-
+Index: src/lt/bit/java/daugybosLentele/Main.java
+===================================================================
+diff --git a/src/lt/bit/java/daugybosLentele/Main.java b/src/lt/bit/java/daugybosLentele/Main.java
+deleted file mode 100644
+--- a/src/lt/bit/java/daugybosLentele/Main.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,58 +0,0 @@
+-//package lt.bit.java.daugybosLentele;
+-
+-//public class Main {
+-    //public static void main(String[] args) {
+-     //   System.out.println("Daugybos lentele");
+-
+-
+-        //  for(int n = 1; n <= 9; n++) {
+-        //     for ( int i = 1; i <= 10; i++ ) {
+-        //         System.out.println( n + " x " + i + " = " + n *i);
+-        //   }
+-
+-
+-        //   System.out.println();
+-
+-
+-        //   for (int row = 1; row <= 10; row++){
+-        //     for (int col = 1 ; col <= 9; col++){
+-        //       System.out.print(col + " x " + row +" = " + col * row + "\t");
+-        // }
+-        //    System.out.println();
+-
+-        // }
+-//        for (int row = 1; row <=10; row++){
+-//            for (int col = 1;col <= 3; col++){
+-//                System.out.print(col + " x " + row + " = " + col * row + "\t");
+-//            }
+-//            System.out.println();
+-//        }
+-//        for (int row = 1; row <=10; row++){
+-//            for (int col = 4;col <= 6; col++){
+-//                System.out.print(col + " x " + row + " = " + col * row + "\t");
+-//            }
+-//            System.out.println();
+-//        }
+-//        for (int row = 1; row <=10; row++){
+-//            for (int col = 7;col <= 9; col++){
+-//                System.out.print(col + " x " + row + " = " + col * row + "\t");
+-//            }
+-//            System.out.println();
+-        // i    col
+-        // 0 - 1 -> i * 3 +1
+-        // 1 - 4 -> i * 3 +1
+-        // 2 - 7 -> i * 3 +1
+-//         for (int i = 0; i < 3; i++) {
+-//             for (int row = 1; row <= 10; row++) {
+-//                 for(int col = i * 3 +1 ; col <= i * 3 + 1 + 2 ;col++){
+-//                     System.out.print(col + " x " + row + "= " + col * row + "\t");
+-//                 }
+-//                 System.out.println();
+-//             }
+-//             System.out.println();
+-//        }
+-//        System.out.println(((100 == 3 ) || ( 10 < 3) && ( 3 < 4) ));
+-        //   }
+-
+-        //}
+-    //}
+\ No newline at end of file
+Index: src/lt/bit/java/klasesirobjektai/chess/Position.java
+===================================================================
+diff --git a/src/lt/bit/java/klasesirobjektai/chess/Position.java b/src/lt/bit/java/klasesirobjektai/chess/Position.java
+deleted file mode 100644
+--- a/src/lt/bit/java/klasesirobjektai/chess/Position.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,25 +0,0 @@
+-/*package lt.bit.java.klasesirobjektai.chess;
+-
+-public class Position {
+-    char letter;
+-    int number;
+-
+-    public Position(char letter, int number) {
+-        this.letter = letter;
+-        this.number = number;
+-    }
+-    public Postion[] possibleMovies(){
+-        final Postion[] o = null;
+-        return o;
+-    }
+-    @Override
+-    public String toString() {
+-        return "" + letter + number ;
+-    }
+-
+-   // public Postion[] possibleMovies(){
+-   //     final Postion[] o = null;
+-   //     return o;
+-   // }
+-   }
+- */
+\ No newline at end of file
+Index: src/lt/bit/java/klasesirobjektai/chess/Queen.java
+===================================================================
+diff --git a/src/lt/bit/java/klasesirobjektai/chess/Queen.java b/src/lt/bit/java/klasesirobjektai/chess/Queen.java
+deleted file mode 100644
+--- a/src/lt/bit/java/klasesirobjektai/chess/Queen.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,29 +0,0 @@
+-/*package lt.bit.java.klasesirobjektai.chess;
+-
+-public class Queen extends Figure {
+-
+-
+-    public Queen(char letter,int number,String color ) {
+-     super(letter,number,color);
+-
+-
+-
+-      //  this.letter = letter;
+-        //  this.number = number;
+-     //   this.color  = color;
+-    }
+-   // @Override
+-   // public String toString() {
+-   //     return "Queen:" + position + "," + color ;
+-  //  }
+-
+-   // public void method1(){
+-      //  TODO...
+-   // }
+-    @Override
+-    public Postion[] possibleMovies(){
+-      return null;
+-
+-    }
+-}
+-   */
+\ No newline at end of file
+Index: src/lt/bit/java/klasesirobjektai/chess/Figure.java
+===================================================================
+diff --git a/src/lt/bit/java/klasesirobjektai/chess/Figure.java b/src/lt/bit/java/klasesirobjektai/chess/Figure.java
+deleted file mode 100644
+--- a/src/lt/bit/java/klasesirobjektai/chess/Figure.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,34 +0,0 @@
+-//package lt.bit.java.klasesirobjektai.chess;
+-
+-//public class Figure {//extends Object
+-  //  Position position;
+-  //  String color;
+-
+-  //  public Figure(char letter, int number, String color) {
+-        //  this.letter = letter;
+-        //   this.number = number;
+-    //    this.position = new Position(letter, number);
+-     //   this.color = color;
+-   // }
+-
+-    // @Override
+-    // public String toString() {
+-    //     return "Figure:" + letter + number + "," + color ;
+-    // }
+-
+-
+-    // @Override
+-    // public String toString() {
+-     //   return getClass().getSimpleName() + " " + position + " ," + color ;
+-     //  }
+-     // public Postion[] possibleMovies(){
+-      //  return null;
+-
+-   // }
+-
+-   // public Postion[] possibleMovies(){
+-    //    return null;
+-   // }
+-//}
+-
+-
+Index: src/lt/bit/java/uzdavinys/array.java
+===================================================================
+diff --git a/src/lt/bit/java/uzdavinys/array.java b/src/lt/bit/java/uzdavinys/array.java
+deleted file mode 100644
+--- a/src/lt/bit/java/uzdavinys/array.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,36 +0,0 @@
+-package lt.bit.java.uzdavinys;
+-
+-class TwoDimensionalArray {
+-    public static void main(String[] args) {
+-        int a[][] = new int[3][2]; //declarion
+-        //dedami elementai/reiksme i masyva
+-        a[0][0] = 10;
+-        a[0][1] = 20;
+-
+-        a[1][0] = 30;
+-        a[1][1] = 40;
+-
+-        a[2][0] = 50;
+-        a[2][1] = 60;
+-
+-
+-     /*   //kilpos kunas
+-        //interacija jo eiluteja
+-        for (int i = 0; i <= 2; i++) {
+-
+-
+-            System.out.println();
+-            //interacija  stulpeliu kiek viena eilute
+-            for (int j = 0; j <= 1; j++) {
+-                System.out.print(a[i][j] + " ");//10 20 30 40 50 60
+-            }
+-            System.out.println();
+-        }*/
+-        for(int i[]:a){
+-            for(int j:i){
+-                System.out.print(j+"  ");//10 20 30 40 50 60
+-            }
+-            System.out.println();
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: src/lt/bit/java/klasesirobjektai/chess/Game.java
+===================================================================
+diff --git a/src/lt/bit/java/klasesirobjektai/chess/Game.java b/src/lt/bit/java/klasesirobjektai/chess/Game.java
+deleted file mode 100644
+--- a/src/lt/bit/java/klasesirobjektai/chess/Game.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,17 +0,0 @@
+-/*package lt.bit.java.klasesirobjektai.chess;
+-
+-public class Game {
+-    public static void main(String[]args) {
+-        Queen queen = new Queen('D' ,8,"Black");
+-         King king  = new King ( 'E', 8, "Black");
+-
+-         System.out.println(queen);
+-         System.out.println(king);
+-
+-     //   queen.color ="Black";
+-     //   queen.letter = 'D';
+-     //   queen.number = 1;
+-    }
+-
+-}
+-*/
+\ No newline at end of file
+Index: src/lt/bit/java/daugybosLentele/C.java
+===================================================================
+diff --git a/src/lt/bit/java/daugybosLentele/C.java b/src/lt/bit/java/daugybosLentele/C.java
+deleted file mode 100644
+--- a/src/lt/bit/java/daugybosLentele/C.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ /dev/null	(revision 423adbda712887409d17b354b5288feff3eff5b3)
+@@ -1,15 +0,0 @@
+-package lt.bit.java.daugybosLentele;
+-
+-import javax.swing.JOptionPane;
+-public class C {
+-    public static void main(String[] args) {
+-        String strFullName;
+-        
+-
+-    }
+-
+-    
+-       
+-    
+-    
+-}
+Index: src/lt/bit/java/p08/Mokinys.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Mokinys.java b/src/lt/bit/java/p08/Mokinys.java
+new file mode 100644
+--- /dev/null	(date 1618213175179)
++++ b/src/lt/bit/java/p08/Mokinys.java	(date 1618213175179)
+@@ -0,0 +1,44 @@
++package lt.bit.java.p08;
++
++public class Mokinys {
++
++    String Vardas;
++    String Pavarde;
++    int Klase;
++    int[] Trimestras;
++
++    public Mokinys(String vardas, String pavarde, int klase, int[] Trimestras) {
++        Vardas = vardas;
++        Pavarde = pavarde;
++        Klase = klase;
++        Trimestras = Trimestras;
++    }
++    double vidurkis(){
++        double vid = 0.0;
++        for (int i : Trimestras) vid += i;
++        return vid / Trimestras.length;
++    }
++
++    public String getVardas() {
++        return Vardas;
++    }
++
++    public String getPavarde() {
++        return Pavarde;
++    }
++
++    public int getKlase() {
++        return Klase;
++    }
++
++    public int[] getTrimestras() {
++        return Trimestras;
++    }
++    protected void setVardas(String Vardas ) {this.Vardas = Vardas;}
++
++    protected void setPavarde(String Pavarde) {this.Pavarde = Pavarde;}
++
++    protected void setKlase(int Klase) {this.Klase = Klase;}
++
++    protected void setTrimestras(int[] Trimestras) {this.Trimestras = Trimestras;}
++}
+Index: src/lt/bit/java/p06/Man.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p06/Man.java b/src/lt/bit/java/p06/Man.java
+new file mode 100644
+--- /dev/null	(date 1618416519671)
++++ b/src/lt/bit/java/p06/Man.java	(date 1618416519671)
+@@ -0,0 +1,59 @@
++package lt.bit.java.p06;
++
++import java.util.Arrays;
++
++public class Man<humans> {
++
++    public static void main(String[] args) {
++        System.out.println("Turnyro tvarkarastis");
++
++        //14) Petras - Maryte
++        //15) 4 poros laimetojas - Ona
++        //16) 3 poros laimetojas - 2 poros laimetojas
++
++
++        Human[] humans = new Human[]{
++                new Human("Ona"),
++                new Human("Jona"),
++                new Human("ILona"),
++                new Human("Esona"),
++                new Human("Seona"),
++                new Human("Rona"),
++                new Human("Sona"),
++                new Human("Zona")
++        };
++        System.out.println(Arrays.toString(humans));
++        Pair p1 = new Pair(humans[0],humans[1]);
++        System.out.println(p1.name());
++        System.out.println(p1.board());
++
++        Pair p2 = new Pair(p1,humans[2]);
++        System.out.println(p2.name());
++        System.out.println(p2.board());
++
++        Human h1 = new Human(p2);
++        System.out.println(h1.name());
++
++
++
++
++
++
++       // int count = humans.length;
++      //  Pair[] pairs = new Pair[count /2];
++      //  for (int i =0;i < count;i +=2) {
++     //       pairs[i/2] = new Pair(humans[i],humans[i+1]);}
++      //  System.out.println(("1 ratas"));
++      //  for( int k = 0; k < pairs.length;k++){
++      //    Pair x = pairs[k];
++      //    System.out.println(x.board());
++
++
++      //  Pair x;
++      //  Arrays.stream(pairs).map(X -> x.board()).forEach(System.out::println);
++    }
++
++}
++
++
++
+Index: src/lt/bit/java/p06/Human.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p06/Human.java b/src/lt/bit/java/p06/Human.java
+new file mode 100644
+--- /dev/null	(date 1618418053057)
++++ b/src/lt/bit/java/p06/Human.java	(date 1618418053057)
+@@ -0,0 +1,34 @@
++package lt.bit.java.p06;
++
++public class  Human implements IGamer  {
++
++    private static int n = 1;
++
++    final private String name;
++    final private int number;
++
++    public Human(String name) {
++        this.name = name();
++        this.number = n++;
++
++    }
++
++    public Human (Pair pair) {
++        this.number = n ++ ;
++        this.name = pair.name();
++ }
++  public String getName() {return name;}
++
++  public int getNumber() {return number;}
++
++
++    @Override
++    public String name() {
++        return name + "(" + number + " )" ;
++    }
++
++    @Override
++    public String toString() {
++        return number + " " + name;
++    }
++}
+Index: src/lt/bit/java/p05/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p05/Main.java b/src/lt/bit/java/p05/Main.java
+new file mode 100644
+--- /dev/null	(date 1618286550064)
++++ b/src/lt/bit/java/p05/Main.java	(date 1618286550064)
+@@ -0,0 +1,19 @@
++package lt.bit.java.p05;
++
++public class Main {
++    public static void main(String[]args) {
++        Zmogus zmogus1 = new Zmogus();
++        zmogus1.vardas = "Gintaras";
++        System.out.println(zmogus1.vardas);
++
++
++
++        Zmogus zmogus2 = new Zmogus();
++        zmogus2.vardas = "Ona";
++        zmogus2.pavarde= "Onaite";
++        System.out.println(zmogus2.vardas + ' ' + zmogus2.pavarde );
++    }
++
++
++
++}
+Index: src/lt/bit/java/p08/MainTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/MainTest.java b/src/lt/bit/java/p08/MainTest.java
+new file mode 100644
+--- /dev/null	(date 1618286782488)
++++ b/src/lt/bit/java/p08/MainTest.java	(date 1618286782488)
+@@ -0,0 +1,7 @@
++package lt.bit.java.p08;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++class MainTest {
++
++}
+\ No newline at end of file
+Index: src/Vidines.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Vidines.java b/src/Vidines.java
+new file mode 100644
+--- /dev/null	(date 1618377230125)
++++ b/src/Vidines.java	(date 1618377230125)
+@@ -0,0 +1,50 @@
++public class Vidines {
++    class Test1{}
++
++    class Test2{}
++
++    public static void main(String[] args){
++        new Object(){};
++
++        new Object(){};
++
++       System.out.println("Hello  wonderful Lord");
++
++    }
++}
++//[raj@mundrooj]%:java Vidines
++ // Radius=5.0 Area=78.5
++//  Radius=5.0 Circumference =31.400000000000002
++
++ class DienaDemo<diena>{
++     DienaDemo() {
++         this.diena = new DienaDemo<>();
++
++     }
++
++     private static final Object SEKMDIENIS = null;
++     private static final Object SESTADIENIS;
++
++     static {
++         SESTADIENIS = null;
++     }
++
++     private static final Object PENKTADIENIS = null;
++     private static final Object PIRMADIENIS = null;
++     private Object diena;
++
++
++
++
++     public void apibudink() {
++         if (PIRMADIENIS.equals(diena)) {
++             System.out.println("Pirmadienis sunki diena.");
++         } else if (PENKTADIENIS.equals(diena)) {
++             System.out.println("Penktadienis gerai.");
++         } else if (SESTADIENIS.equals(diena) || SEKMDIENIS.equals(diena)) {
++             System.out.println("Iseigine puiku.");
++         } else {
++             System.out.println("Eiline darbo diena");
++         }
++     }
++ }
+\ No newline at end of file
+Index: src/lt/bit/java/p06/IGamer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p06/IGamer.java b/src/lt/bit/java/p06/IGamer.java
+new file mode 100644
+--- /dev/null	(date 1618467266791)
++++ b/src/lt/bit/java/p06/IGamer.java	(date 1618467266791)
+@@ -0,0 +1,8 @@
++package lt.bit.java.p06;
++
++public interface IGamer  {
++
++    String name();
++
++
++}
+Index: src/lt/bit/java/intro/A.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package lt.bit.java.intro;\n\nimport java.lang.reflect.Array;\nimport java.util.Arrays;\n\npublic class A { public static void main(String[] args)\n   {\n\n        System.out.print(\"labas grupe;-)\");\n     int arr [] = { 56,16,9,20,2,0,110,44,190,85,1};\n        System.out.println(Arrays.toString(arr));\n        //isspausdinamas masyva prieš lyguojant.\n        for (int i = 0; i < arr.length-1; i++ )\n        {\n            for ( int j = i + 1; j < arr.length; j ++)\n            {\n                if ( arr[i] > arr [j]) //Keisti, jei arr [i] yra didesnis nei arr [j]\n                {\n                    int temp = arr [i];\n                    arr [i] = arr [j];\n                    arr [j] = temp;\n                }\n\n                System.out.println( i + \" :\" +Arrays.toString(arr));\n                //isspausdinamas  arr po lyguojimo.\n            }\n        }\n  }\n\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/intro/A.java b/src/lt/bit/java/intro/A.java
+--- a/src/lt/bit/java/intro/A.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ b/src/lt/bit/java/intro/A.java	(date 1618090420663)
+@@ -1,32 +1,86 @@
+ package lt.bit.java.intro;
+ 
+-import java.lang.reflect.Array;
+-import java.util.Arrays;
++public class A {
++    public static void main(String[]args){
++        System.out.println("What is this Java ");
+ 
+-public class A { public static void main(String[] args)
+-   {
++        // vienos gatves pozymiai:
++            //- kodas
++            //-pavadinmas
++            //-masyvas-kilometras
++            //-masyvas - plotas
++            // pvz:
++            //   kodas:       10
++            //  pavadinimas:  Laisves al.
++            // kilometras:   [2.0 km, 3.4 km,  5.9 km]
++            // plotas :      [2 juostos, 2 juostos, 6 juostos ]
+ 
+-        System.out.print("labas grupe;-)");
+-     int arr [] = { 56,16,9,20,2,0,110,44,190,85,1};
+-        System.out.println(Arrays.toString(arr));
+-        //isspausdinamas masyva prieš lyguojant.
+-        for (int i = 0; i < arr.length-1; i++ )
+-        {
+-            for ( int j = i + 1; j < arr.length; j ++)
+-            {
+-                if ( arr[i] > arr [j]) //Keisti, jei arr [i] yra didesnis nei arr [j]
+-                {
+-                    int temp = arr [i];
+-                    arr [i] = arr [j];
+-                    arr [j] = temp;
+-                }
++            int[] kodai = {10,11,12 };
++            String[] pavadinimai = {"Laisves al","Vytauto pr. ","Maironio g."};
++            double[][] km = {
+ 
+-                System.out.println( i + " :" +Arrays.toString(arr));
+-                //isspausdinamas  arr po lyguojimo.
++                    {2.0, 3.4, 5.9 },
++                    {0.0, 0.5, 0.75,1.2, 3.4},
++                    {0.0, 0.3, 1.1, 1.8}
++            };
++            int[][] plotis = {
++                    {2, 2, 6},
++                    {5, 4, 4, 4, 6},
++                    {2, 2, 2, 2}
++            };
++            for(int i = 0; i < kodai.length; i++){
++                System.out.print(kodai[i] + " " + pavadinimai [i] + ", sankryzos: " );
++                for (int k = 0; k < km[i].length; k++){
++                    System.out.print(km[i][k] + " (" + plotis[i][k] + "),");
++                }
++                System.out.println();
++            }
++            //Strukturos!!!
++            class Sankryza {
++                double km;
++                int plotis;
+             }
+-        }
+-  }
++            class Gatve {
++                int kodas;
++                String pavadinimas;
++                double[] km;
++                int[] ploti;
++                Sankryza[] sankryzos;
++            }
++            Gatve gatve = new Gatve();
++            gatve.kodas = 10;
++            gatve.pavadinimas ="laisves al.";
++            gatve.sankryzos = new Sankryza[3];
++            gatve.sankryzos[0] = new Sankryza();
++            gatve.sankryzos[0].km = 2.0;
++            gatve.sankryzos[0].plotis = 2;
++            gatve.sankryzos[1] = new Sankryza();
++            gatve.sankryzos[1].km = 3.4;
++            gatve.sankryzos[1].plotis = 2;
++            gatve.sankryzos[2] = new Sankryza();
++            gatve.sankryzos[2].km = 5.9;
++            //gatve.sankryzos[2}.plotis = 2;
++
++            System.out.print(gatve.kodas + " " + gatve.pavadinimas + " sankryzos: " );
++            for (int i = 0; i < gatve.sankryzos.length; i++){
++                System.out.print(gatve.sankryzos[i].km +"(" + gatve.sankryzos[i].plotis + "),");
++            }
++            System.out.println();
++
++
++            Gatve gatve2 = new Gatve();
++            System.out.print(gatve2.kodas + " " + gatve2.pavadinimas );
++
++
++
++
++
++
++
++
+ 
+ 
+-}
++        }
++    }
+ 
++
+Index: src/Diena.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Diena.java b/src/Diena.java
+new file mode 100644
+--- /dev/null	(date 1618376043969)
++++ b/src/Diena.java	(date 1618376043969)
+@@ -0,0 +1,5 @@
++public enum Diena {
++    PIRMADIENIS, ANTRADIENIS, TRCIADIENIS, KETVIRTADIENIS,
++    PENKTADIENIS, SESTEDIENIS, SEKMADIENIS
++
++}
+Index: src/lt/bit/java/p06/Pair.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p06/Pair.java b/src/lt/bit/java/p06/Pair.java
+new file mode 100644
+--- /dev/null	(date 1618417253887)
++++ b/src/lt/bit/java/p06/Pair.java	(date 1618417253887)
+@@ -0,0 +1,35 @@
++package lt.bit.java.p06;
++
++public class Pair implements IGamer {
++
++    private static  int n = 1;
++
++ final    private int number;
++ final    private IGamer a;
++ final    private IGamer b;
++
++
++
++    public Pair(IGamer a, IGamer b) {
++        this.a = a;
++        this.b = b;
++        number = n++;
++
++    }
++
++    public String board()
++    { return number + "'" + a.name() + " - "+ b.name();
++    }
++
++     @Override
++     public String name()
++     {return "("+ number +  " poros laimetojas" ;}
++
++
++    @Override
++    public String toString()
++    { return number + " ) " + a + " - " + b;
++    }
++
++
++}
+Index: src/Users.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Users.java b/src/Users.java
+new file mode 100644
+--- /dev/null	(date 1618286658853)
++++ b/src/Users.java	(date 1618286658853)
+@@ -0,0 +1,12 @@
++import java.util.Arrays;
++
++public class Users {
++    private static Object Users;
++
++    public static void main(Arrays[]args){
++        class Arrays  {
++            /* "Sent67","xX_st3v3N_Xx","VexMaster02"; */
++
++    }
++    }
++}
+Index: src/lt/bit/java/p08/mokinys-interface
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/mokinys-interface b/src/lt/bit/java/p08/mokinys-interface
+new file mode 100644
+--- /dev/null	(date 1618236324652)
++++ b/src/lt/bit/java/p08/mokinys-interface	(date 1618236324652)
+@@ -0,0 +1,8 @@
++ Mokinys interface
++
++ /*.........>/ka kiekvienas metodas daro.*/
++ double getVidurkis();
++ String getVardas();
++ String getPavarde();
++ int getKlase();
++ int[] getTrimestras();
+\ No newline at end of file
+Index: src/lt/bit/java/p08/Uzdavinys.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Uzdavinys.java b/src/lt/bit/java/p08/Uzdavinys.java
+new file mode 100644
+--- /dev/null	(date 1618213300649)
++++ b/src/lt/bit/java/p08/Uzdavinys.java	(date 1618213300649)
+@@ -0,0 +1,45 @@
++package lt.bit.java.p08;
++
++import java.sql.Array;
++import java.util.Arrays;
++public class Uzdavinys {
++    public static void main(String[] args) {
++        System.out.println("What is this Java ");
++        {
++
++            Mokinys[] mokiniai = new Mokinys[]{
++                    new Mokinys("Petras", "Petraitis", '2', new int[]{8, 9, 9, 8}),
++                    new Mokinys("Jonas", "Jonaiytis", '2', new int[]{10, 10, 8, 9}),
++                    new Mokinys("Ponas", "Ponaiytis", '9', new int[]{10, 10, 10, 9}),
++                    new Mokinys("Monas", "Monaiytis", '1', new int[]{5, 6, 8, 9, 7}),
++            };
++            spausdinti("Pradiniai:", mokiniai);
++           lygiuoti(mokiniai);
++           // Mokinys[]kiti = new Mokinys[10];
++           spausdinti( "Rezultatas",mokiniai);
++
++
++
++
++        }
++    }
++
++    private static void lygiuoti(Mokinys[] mokiniai) {
++    }
++
++    private static void spausdinti(String title,Mokinys[] m) {
++        System.out.println(title);
++      //  System.out.println(Arrays.toString(m));
++        for (Mokinys mokinys : m ) {
++            System.out.println(mokinys.Pavarde +" "+ mokinys.Vardas +" "+ mokinys.Klase + " " + Arrays.toString(mokinys.Trimestras) );
++
++        }
++       // static void lygiuoti(mokinys[] mok){
++       //     Arrays.sort(mok,)
++        //}
++    }
++}
++
++
++
++
+Index: src/lt/bit/java/p08/Masyvai.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Masyvai.java b/src/lt/bit/java/p08/Masyvai.java
+new file mode 100644
+--- /dev/null	(date 1618092496462)
++++ b/src/lt/bit/java/p08/Masyvai.java	(date 1618092496462)
+@@ -0,0 +1,41 @@
++package lt.bit.java.p08;
++
++//public class Masyvai {
++
++
++    class TwoDimensionalArray {
++        public static void main(String[] args) {
++            int a[][] = new int[3][2]; //declarion
++            //dedami elementai/reiksme i masyva
++            a[0][0] = 10;
++            a[0][1] = 20;
++
++            a[1][0] = 30;
++            a[1][1] = 40;
++
++            a[2][0] = 50;
++            a[2][1] = 60;
++
++
++     /*   //kilpos kunas
++        //interacija jo eiluteja
++        for (int i = 0; i <= 2; i++) {
++
++
++            System.out.println();
++            //interacija  stulpeliu kiek viena eilute
++            for (int j = 0; j <= 1; j++) {
++                System.out.print(a[i][j] + " ");//10 20 30 40 50 60
++            }
++            System.out.println();
++        }*/
++            for(int i[]:a){
++                for(int j:i){
++                    System.out.print(j+"  ");//10 20 30 40 50 60
++                }
++                System.out.println();
++            }
++        }
++    }
++
++
+Index: src/lt/bit/java/p15/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p15/Main.java b/src/lt/bit/java/p15/Main.java
+new file mode 100644
+--- /dev/null	(date 1618470986824)
++++ b/src/lt/bit/java/p15/Main.java	(date 1618470986824)
+@@ -0,0 +1,25 @@
++package lt.bit.java.p15;
++
++import java.io.OptionalDataException;
++import java.util.Arrays;
++
++public class Main {
++    public static void main(String[] args){
++        DinaminisMasyvas masyvas;
++        masyvas = generuoti();
++        for (int i = 0; i < masyvas.size(); i++){
++
++        }
++        System.out.println(Arrays.toString(masyvas));
++    }
++
++    private static DinaminisMasyvas generuoti() {
++    }
++
++
++    private OptionalDataException masyvas;
++    String[] masyvas2 = new String[masyvas.length +i];
++    for (int i = 0;  )
++
++
++}
+Index: src/lt/bit/java/p08/TeastArr.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/TeastArr.java b/src/lt/bit/java/p08/TeastArr.java
+new file mode 100644
+--- /dev/null	(date 1618093741160)
++++ b/src/lt/bit/java/p08/TeastArr.java	(date 1618093741160)
+@@ -0,0 +1,12 @@
++package lt.bit.java.p08;
++
++//public class TeastArr {
++    class Test {
++        public static void main(String[] args) {
++            int[] ia = new int[3];
++            int[] ib = new int[6];
++            System.out.println(ia.getClass() == ib.getClass());
++            System.out.println("ia has length=" + ia.length);
++        }
++    }
++
+Index: src/lt/bit/java/p15/DinaminisMasyvas.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p15/DinaminisMasyvas.java b/src/lt/bit/java/p15/DinaminisMasyvas.java
+new file mode 100644
+--- /dev/null	(date 1618471437316)
++++ b/src/lt/bit/java/p15/DinaminisMasyvas.java	(date 1618471437316)
+@@ -0,0 +1,26 @@
++package lt.bit.java.p15;
++
++public class DinaminisMasyvas {
++    private String[] array = new String[1000];
++     private int count = 0;
++
++
++
++    public  void  add(String s ) {
++        if (count == array.length){
++            String[ naujas = new String[array.length + 5];
++        }
++      array[count] = s;
++       count++;
++
++    }
++
++
++    public  int size(){
++        return 1;
++    }
++    public String get(int i) {
++
++        return array;
++    }
++}
+Index: src/lt/bit/java/intro/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package lt.bit.java.intro;\n\npublic class Main {\n    public static void main(String[]args){\n        System.out.println(\"Hello\");\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/intro/Main.java b/src/lt/bit/java/intro/Main.java
+--- a/src/lt/bit/java/intro/Main.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ b/src/lt/bit/java/intro/Main.java	(date 1618089330112)
+@@ -1,7 +1,42 @@
+ package lt.bit.java.intro;
+ 
+ public class Main {
+-    public static void main(String[]args){
+-        System.out.println("Hello");
++    public static void main(String[] args) {
++        System.out.println(getDayName(0));
++
+     }
+-}
++
++    public static boolean getDayName(int dayNum) {
++        String dayName = "";
++        switch (dayNum) {
++            case 0:
++                dayName = "Sekmadienis";
++                break;
++            case 1:
++                dayName = "Pirmadienis";
++                break;
++            case 2:
++                dayName = "Antradienis";
++                break;
++            case 3:
++                dayName = "Treciadienis";
++                break;
++            case 4:
++                dayName = "Ketvirtadienis";
++                break;
++            case 5:
++                dayName = "Penktadienis";
++                break;
++            case 6:
++                dayName = "Šeštadienis";
++                break;
++            default:
++                dayName = "Invalid Day Number";
++                break;
++        }
++
++
++        return false;
++    }
++
++}
+\ No newline at end of file
+Index: src/lt/bit/java/intro/B.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package lt.bit.java.intro;\n\nimport java.awt.*;\n\npublic class B {\n    private static Robot r1;\n    private static Robot r2;{\n\n\n\n    }\n\n    public static void main(String[] args) {\n        System.out.println(\"yes\");\n         class Robot {\n             String name;\n             String color;\n             int weight;\n\n             Robot(String n, String c, int w) {\n                 this.name = n;\n                 this.color = c;\n                 this.weight = w;\n\n             }\n\n\n\n             Robot r1 =new Robot(\"Tom\",\"red\", 30);\n             Robot r2 =new Robot(\"Jerry\",\"blue\",40);\n\n           // r1.itroduceSelf(public Robot);\n          //   r2.itroduceSelf(public Robot);\n\n             void introduceSelf(){\n                 System.out.println(\"My name is \" + this.name);\n             }\n\n         }\n         class Person {\n             String name;\n             String personality;\n             boolean isSitting;\n             Robot robotOwned;\n\n             Person(String n,String p,boolean i){\n                 this.name =n;\n                this.personality =p;\n                 this.isSitting = i;\n             }\n             public void sitDown(){\n                 this.isSitting = true; }\n             public void standUp(){\n                 this.isSitting = false; }\n         }\n         Person p1 = new Person(\"Alice\",\"aggressive\",false);\n         Person p2 = new Person(\"Becky\",\"talkative\",true);\n\n      //   p1.robotOwned = r2;\n     //    p2.robotOwned = r1;\n\n         p1.robotOwned.introduceSelf();\n         p2.robotOwned.introduceSelf();\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/intro/B.java b/src/lt/bit/java/intro/B.java
+--- a/src/lt/bit/java/intro/B.java	(revision 423adbda712887409d17b354b5288feff3eff5b3)
++++ b/src/lt/bit/java/intro/B.java	(date 1618060169194)
+@@ -1,65 +1,7 @@
+ package lt.bit.java.intro;
+ 
+-import java.awt.*;
+-
+ public class B {
+-    private static Robot r1;
+-    private static Robot r2;{
+-
+-
+-
+-    }
+-
+-    public static void main(String[] args) {
+-        System.out.println("yes");
+-         class Robot {
+-             String name;
+-             String color;
+-             int weight;
+-
+-             Robot(String n, String c, int w) {
+-                 this.name = n;
+-                 this.color = c;
+-                 this.weight = w;
+-
+-             }
+-
+-
+-
+-             Robot r1 =new Robot("Tom","red", 30);
+-             Robot r2 =new Robot("Jerry","blue",40);
+-
+-           // r1.itroduceSelf(public Robot);
+-          //   r2.itroduceSelf(public Robot);
+-
+-             void introduceSelf(){
+-                 System.out.println("My name is " + this.name);
+-             }
+-
+-         }
+-         class Person {
+-             String name;
+-             String personality;
+-             boolean isSitting;
+-             Robot robotOwned;
+-
+-             Person(String n,String p,boolean i){
+-                 this.name =n;
+-                this.personality =p;
+-                 this.isSitting = i;
+-             }
+-             public void sitDown(){
+-                 this.isSitting = true; }
+-             public void standUp(){
+-                 this.isSitting = false; }
+-         }
+-         Person p1 = new Person("Alice","aggressive",false);
+-         Person p2 = new Person("Becky","talkative",true);
+-
+-      //   p1.robotOwned = r2;
+-     //    p2.robotOwned = r1;
+-
+-         p1.robotOwned.introduceSelf();
+-         p2.robotOwned.introduceSelf();
++    public static void main(String[]args){
++        System.out.println("I love you the Java ;-*" );
+     }
+ }
+Index: src/uzdavynis/Question.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/uzdavynis/Question.java b/src/uzdavynis/Question.java
+new file mode 100644
+--- /dev/null	(date 1618123998635)
++++ b/src/uzdavynis/Question.java	(date 1618123998635)
+@@ -0,0 +1,11 @@
++package uzdavynis;
++
++public class Question {
++    String prompt;
++    String answer;
++    public Question (String prompt,String answer)
++    {
++        this.prompt = prompt;
++        this.answer = answer;
++    }
++}
+Index: src/lt/bit/java/p08/Song.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Song.java b/src/lt/bit/java/p08/Song.java
+new file mode 100644
+--- /dev/null	(date 1618119665632)
++++ b/src/lt/bit/java/p08/Song.java	(date 1618119665632)
+@@ -0,0 +1,25 @@
++package lt.bit.java.p08;
++
++public class Song {
++    private String title;
++    private String artist;
++    private int length;
++    private static  int songsCount = 0;
++    public Song(String title, String artist, int length) {
++        this.title = title;
++        this.artist = artist;
++        this.length = length;
++        songsCount++;
++        System.out.println("song count:" );
++    }
++    public String getTitle() {
++        return title;
++    }
++    public void setTitle(String title){
++        this.title = title;
++    }
++
++    public String getArtist() {
++        return artist;
++    }
++}
+Index: src/uzdavynis/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/uzdavynis/App.java b/src/uzdavynis/App.java
+new file mode 100644
+--- /dev/null	(date 1618124053058)
++++ b/src/uzdavynis/App.java	(date 1618124053058)
+@@ -0,0 +1,19 @@
++package uzdavynis;
++
++public class App {
++    public  static void main(String[] args){
++        String q1 = "What colour are my eyes?\n"
++                + "(a)blue/green\n(b)Brown\n(c)Black\n";
++        String q2 = "What colour are my hair?\n"
++                + "(a)blue/green\n(b)Brown\n(c)Black\n";
++
++    }
++
++    private String q1;
++    private String q2;
++
++    Question[] questions = {
++            new Question(q1,"a"),
++            new Question(q2,"b")
++    };
++}
+Index: src/lt/bit/java/p08/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/App.java b/src/lt/bit/java/p08/App.java
+new file mode 100644
+--- /dev/null	(date 1618118660152)
++++ b/src/lt/bit/java/p08/App.java	(date 1618118660152)
+@@ -0,0 +1,11 @@
++package lt.bit.java.p08;
++
++public class App {
++    public static void main(String[]args) {
++        Song AboveBeyond = new Song("Blue sky action","Alex Vargas",75);
++        Song LaukaukiauIlgai = new Song("Laukiau ilgai","Alanas Chosnau", 457);
++
++        System.out.println(AboveBeyond.getArtist());
++        System.out.println(AboveBeyond.getTitle());
++    }
++}
+Index: src/lt/bit/java/p08/Arrays.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Arrays.java b/src/lt/bit/java/p08/Arrays.java
+new file mode 100644
+--- /dev/null	(date 1618093200129)
++++ b/src/lt/bit/java/p08/Arrays.java	(date 1618093200129)
+@@ -0,0 +1,13 @@
++package lt.bit.java.p08;
++
++//public class Arrays {
++    class Gauss {
++        public static void main(String[] args) {
++            int[] ia = new int[101];
++            for (int i = 0; i < ia.length; i++) ia[i] = i;
++            int sum = 0;
++            for (int e : ia) sum += e;
++            System.out.println(sum);
++        }
++    }
++
+Index: src/lt/bit/java/p08/Chef.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Chef.java b/src/lt/bit/java/p08/Chef.java
+new file mode 100644
+--- /dev/null	(date 1618123998638)
++++ b/src/lt/bit/java/p08/Chef.java	(date 1618123998638)
+@@ -0,0 +1,14 @@
++package lt.bit.java.p08;
++
++public class Chef {
++    public void makeChicken( ) {
++        System.out.println("The chef  makes a delicious chicken");
++
++    }
++    public void makeSalad( ) {
++        System.out.println("The chef  makes a healthy salad");
++    }
++    public void makeSpecialDish( ) {
++        System.out.println("The chef  makes bbq ribs");
++    }
++}
+Index: src/lt/bit/java/p08/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p08/Main.java b/src/lt/bit/java/p08/Main.java
+new file mode 100644
+--- /dev/null	(date 1618287091129)
++++ b/src/lt/bit/java/p08/Main.java	(date 1618287091129)
+@@ -0,0 +1,22 @@
++package lt.bit.java.p08;
++
++import lt.bit.java.p05.Zmogus;
++
++//public class Main {
++class Main {
++
++    public Main() {
++    }
++
++    public static void main(String[] args) {
++
++            Zmogus zmogus4 = new Zmogus("Vardas" ,"Pavarde");
++            System.out.println(zmogus4.vardas);
++
++
++            Zmogus zmogus3 = new Zmogus("Rasa", "Pelėda");
++            System.out.println(zmogus3.vardas + ' ' + zmogus3.pavarde);
++        }
++    }
++
++
+Index: src/lt/bit/java/p05/Zmogus.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/p05/Zmogus.java b/src/lt/bit/java/p05/Zmogus.java
+new file mode 100644
+--- /dev/null	(date 1618287384408)
++++ b/src/lt/bit/java/p05/Zmogus.java	(date 1618287384408)
+@@ -0,0 +1,38 @@
++package lt.bit.java.p05;
++
++public class Zmogus {
++    public String pavarde;
++   public String vardas;
++
++
++    public Zmogus(String vardas, String pavarde) {
++        this.vardas = vardas;
++        this.pavarde = pavarde;
++
++    }
++
++    public Zmogus() {
++
++    }
++
++    public String getVardas() {
++        return vardas;
++    }
++
++    public String getPavarde() {
++        return pavarde;
++    }
++}
++   /*
++   public char vardas;
++  /  public char pavarde;
++   public Zmogus(String rasa, String pelėda) {
++      System.out.println(String[]Zmogus);
++   }
++    public void main(String[] args) {
++   System.out.println("How is wonderful a the Java ;-*");
++   System.out.println(String[]Zmogus);
++  */
++
++
++

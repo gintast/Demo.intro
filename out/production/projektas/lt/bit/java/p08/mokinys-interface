@@ -1,0 +1,8 @@
+ Mokinys interface
+
+ /*.........>/ka kiekvienas metodas daro.*/
+ double getVidurkis();
+ String getVardas();
+ String getPavarde();
+ int getKlase();
+ int[] getTrimestras();
