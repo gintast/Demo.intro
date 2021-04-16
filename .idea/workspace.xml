@@ -23,6 +23,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3406a48b-b6c3-4512-bcdd-89128d7aa073" />
+        <option name="url" value="https://github.com/gintast/Demo.intro.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/lt/bit/java/intro/A.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/lt/bit/java/intro/Main.java" root0="FORCE_HIGHLIGHTING" />
@@ -33,6 +41,7 @@
     <setting file="file://$PROJECT_DIR$/src/lt/bit/java/uzdavinys/pamoka.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1qvd3no04Gi9rixdeEhdq58pOW3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
