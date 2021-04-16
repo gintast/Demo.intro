@@ -1,4 +1,4 @@
-/*package lt.bit.java.klasesirobjektai.chess;
+package lt.bit.java.klasesirobjektai.chess;
 
 public class Queen extends Figure {
 
@@ -26,4 +26,3 @@ public class Queen extends Figure {
 
     }
 }
-   */

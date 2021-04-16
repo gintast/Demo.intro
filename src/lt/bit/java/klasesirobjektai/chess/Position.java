@@ -1,4 +1,4 @@
-/*package lt.bit.java.klasesirobjektai.chess;
+package lt.bit.java.klasesirobjektai.chess;
 
 public class Position {
     char letter;
@@ -21,5 +21,4 @@ public class Position {
    //     final Postion[] o = null;
    //     return o;
    // }
-   }
- */
+}
