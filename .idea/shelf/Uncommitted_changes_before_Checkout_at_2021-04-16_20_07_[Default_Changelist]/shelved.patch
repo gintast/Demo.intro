@@ -1,0 +1,229 @@
+Index: src/lt/bit/java/intro/A.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package lt.bit.java.intro;\n\nimport java.lang.reflect.Array;\nimport java.util.Arrays;\n\npublic class A { public static void main(String[] args)\n   {\n\n        System.out.print(\"labas grupe;-)\");\n     int arr [] = { 56,16,9,20,2,0,110,44,190,85,1};\n        System.out.println(Arrays.toString(arr));\n        //isspausdinamas masyva prieš lyguojant.\n        for (int i = 0; i < arr.length-1; i++ )\n        {\n            for ( int j = i + 1; j < arr.length; j ++)\n            {\n                if ( arr[i] > arr [j]) //Keisti, jei arr [i] yra didesnis nei arr [j]\n                {\n                    int temp = arr [i];\n                    arr [i] = arr [j];\n                    arr [j] = temp;\n                }\n\n                System.out.println( i + \" :\" +Arrays.toString(arr));\n                //isspausdinamas  arr po lyguojimo.\n            }\n        }\n  }\n\n\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/lt/bit/java/intro/A.java b/src/lt/bit/java/intro/A.java
+--- a/src/lt/bit/java/intro/A.java	(revision 6ee743e4bb13aafabaf9cd7fc6ce01bec6093623)
++++ b/src/lt/bit/java/intro/A.java	(date 1618557905537)
+@@ -1,32 +1,86 @@
+ package lt.bit.java.intro;
+ 
+-import java.lang.reflect.Array;
+-import java.util.Arrays;
++public class A {
++    public static void main(String[]args){
++        System.out.println("What is this Java ");
+ 
+-public class A { public static void main(String[] args)
+-   {
++        // vienos gatves pozymiai:
++            //- kodas
++            //-pavadinmas
++            //-masyvas-kilometras
++            //-masyvas - plotas
++            // pvz:
++            //   kodas:       10
++            //  pavadinimas:  Laisves al.
++            // kilometras:   [2.0 km, 3.4 km,  5.9 km]
++            // plotas :      [2 juostos, 2 juostos, 6 juostos ]
+ 
+-        System.out.print("labas grupe;-)");
+-     int arr [] = { 56,16,9,20,2,0,110,44,190,85,1};
+-        System.out.println(Arrays.toString(arr));
+-        //isspausdinamas masyva prieš lyguojant.
+-        for (int i = 0; i < arr.length-1; i++ )
+-        {
+-            for ( int j = i + 1; j < arr.length; j ++)
+-            {
+-                if ( arr[i] > arr [j]) //Keisti, jei arr [i] yra didesnis nei arr [j]
+-                {
+-                    int temp = arr [i];
+-                    arr [i] = arr [j];
+-                    arr [j] = temp;
+-                }
++            int[] kodai = {10,11,12 };
++            String[] pavadinimai = {"Laisves al","Vytauto pr. ","Maironio g."};
++            double[][] km = {
+ 
+-                System.out.println( i + " :" +Arrays.toString(arr));
+-                //isspausdinamas  arr po lyguojimo.
++                    {2.0, 3.4, 5.9 },
++                    {0.0, 0.5, 0.75,1.2, 3.4},
++                    {0.0, 0.3, 1.1, 1.8}
++            };
++            int[][] plotis = {
++                    {2, 2, 6},
++                    {5, 4, 4, 4, 6},
++                    {2, 2, 2, 2}
++            };
++            for(int i = 0; i < kodai.length; i++){
++                System.out.print(kodai[i] + " " + pavadinimai [i] + ", sankryzos: " );
++                for (int k = 0; k < km[i].length; k++){
++                    System.out.print(km[i][k] + " (" + plotis[i][k] + "),");
++                }
++                System.out.println();
++            }
++            //Strukturos!!!
++            class Sankryza {
++                double km;
++                int plotis;
+             }
+-        }
+-  }
++            class Gatve {
++                int kodas;
++                String pavadinimas;
++                double[] km;
++                int[] ploti;
++                Sankryza[] sankryzos;
++            }
++            Gatve gatve = new Gatve();
++            gatve.kodas = 10;
++            gatve.pavadinimas ="laisves al.";
++            gatve.sankryzos = new Sankryza[3];
++            gatve.sankryzos[0] = new Sankryza();
++            gatve.sankryzos[0].km = 2.0;
++            gatve.sankryzos[0].plotis = 2;
++            gatve.sankryzos[1] = new Sankryza();
++            gatve.sankryzos[1].km = 3.4;
++            gatve.sankryzos[1].plotis = 2;
++            gatve.sankryzos[2] = new Sankryza();
++            gatve.sankryzos[2].km = 5.9;
++            //gatve.sankryzos[2}.plotis = 2;
++
++            System.out.print(gatve.kodas + " " + gatve.pavadinimas + " sankryzos: " );
++            for (int i = 0; i < gatve.sankryzos.length; i++){
++                System.out.print(gatve.sankryzos[i].km +"(" + gatve.sankryzos[i].plotis + "),");
++            }
++            System.out.println();
++
++
++            Gatve gatve2 = new Gatve();
++            System.out.print(gatve2.kodas + " " + gatve2.pavadinimas );
++
++
++
++
++
++
++
++
+ 
+ 
+-}
++        }
++    }
+ 
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"9278c8fb-4666-46bc-8e97-9e036314e761\" name=\"Default Changelist\" comment=\"new\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1rEvMSbrJZwvSQAW7eBuGohyBo5\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"9278c8fb-4666-46bc-8e97-9e036314e761\" name=\"Default Changelist\" comment=\"\" />\n      <created>1618554044196</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1618554044196</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"new\">\n      <created>1618554385682</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1618554385682</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"new\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"new\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 6ee743e4bb13aafabaf9cd7fc6ce01bec6093623)
++++ b/.idea/workspace.xml	(date 1618558025116)
+@@ -1,7 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="9278c8fb-4666-46bc-8e97-9e036314e761" name="Default Changelist" comment="new" />
++    <list default="true" id="9278c8fb-4666-46bc-8e97-9e036314e761" name="Default Changelist" comment="new">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/lt/bit/java/intro/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lt/bit/java/intro/A.java" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -9,6 +12,15 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/intro/A.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/intro/Main.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/uzdavinys/Main.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/daugybosLentele/C.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/daugybosLentele/Main.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/uzdavinys/array.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/lt/bit/java/uzdavinys/pamoka.java" root0="FORCE_HIGHLIGHTING" />
+   </component>
+   <component name="ProjectId" id="1rEvMSbrJZwvSQAW7eBuGohyBo5" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+@@ -20,6 +32,62 @@
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+   </component>
++  <component name="RunManager">
++    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="lt.bit.java.p08.App" />
++      <module name="projektas" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="lt.bit.java.p05.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Man" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="lt.bit.java.p06.Man" />
++      <module name="projektas" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="lt.bit.java.p06.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="lt.bit.java.p08.Test" />
++      <module name="projektas" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="lt.bit.java.p08.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="Vidines" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Vidines" />
++      <module name="projektas" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Vidines" />
++        <item itemvalue="Application.Test" />
++        <item itemvalue="Application.Man" />
++        <item itemvalue="Application.App" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -49,6 +117,7 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="new" />
